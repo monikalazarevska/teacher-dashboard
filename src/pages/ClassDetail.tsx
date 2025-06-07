@@ -4,13 +4,14 @@ import Avatar from '../components/Avatar';
 import SearchBar from '../components/SearchBar';
 import ClassInfoHeader from '../components/ClassInfoHeader';
 import PupilCard from '../components/PupilCard';
-import { teacher, classes } from '../data/mockData';
+import { teacher } from '../data/mockData';
+import { ClassInfo } from '../types';
 
-const ClassDetail: React.FC = () => {
+interface ClassDetailProps {
+  classInfo: ClassInfo;
+}
+const ClassDetail: React.FC<ClassDetailProps> = ({ classInfo }) => {
   const [search, setSearch] = useState('');
-
-  // For now select the first class in the list
-  const classInfo = classes[0];
 
   const filtered = classInfo.pupils.filter((p) =>
     `${p.firstName} ${p.lastName}`

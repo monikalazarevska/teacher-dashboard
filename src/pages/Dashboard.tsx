@@ -5,8 +5,12 @@ import ClassCard from '../components/ClassCard';
 import Avatar from '../components/Avatar';
 import SearchBar from '../components/SearchBar';
 import { teacher, dashboardStats, classes } from '../data/mockData';
+import { ClassInfo } from '../types';
 
-const Dashboard: React.FC = () => {
+interface DashboardProps {
+  onViewClass: (classInfo: ClassInfo) => void;
+}
+const Dashboard: React.FC<DashboardProps> = ({ onViewClass }) => {
   const [search, setSearch] = useState('');
   const filtered = classes.filter(c =>
     c.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -41,7 +45,7 @@ const Dashboard: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map(c => (
-              <ClassCard key={c.id} data={c} />
+              <ClassCard key={c.id} data={c} onView={() => onViewClass(c)} />
             ))}
           </div>
         </main>
