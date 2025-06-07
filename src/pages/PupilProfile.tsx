@@ -11,14 +11,29 @@ import { PupilDetail } from '../types';
 
 interface PupilProfileProps {
   pupil: PupilDetail;
+  onBack: () => void;
 }
 
-const PupilProfile: React.FC<PupilProfileProps> = ({ pupil }) => (
+const PupilProfile: React.FC<PupilProfileProps> = ({ pupil, onBack }) => (
   <div className="flex h-screen">
     <Sidebar active="classes" />
     <div className="flex-1 flex flex-col">
       <header className="flex justify-between items-center p-4 border-b">
-        <h1 className="text-2xl font-bold">Pupil Report Wizard</h1>
+        <div className="flex items-center">
+          <button onClick={onBack} className="mr-2" aria-label="Go back">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-6 text-gray-600"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <h1 className="text-2xl font-bold">Pupil Report Wizard</h1>
+        </div>
         <Avatar name={teacher.name} />
       </header>
       <main className="p-4 overflow-y-auto">

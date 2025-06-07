@@ -5,13 +5,18 @@ import SearchBar from '../components/SearchBar';
 import ClassInfoHeader from '../components/ClassInfoHeader';
 import PupilCard from '../components/PupilCard';
 import { teacher } from '../data/mockData';
-import { ClassInfo } from '../types';
+import { ClassInfo, Pupil } from '../types';
 
 interface ClassDetailProps {
   classInfo: ClassInfo;
-  onViewPupil: (id: string) => void;
+  onBack: () => void;
+  onViewPupil: (pupil: Pupil) => void;
 }
-const ClassDetail: React.FC<ClassDetailProps> = ({ classInfo, onViewPupil }) => {
+const ClassDetail: React.FC<ClassDetailProps> = ({
+  classInfo,
+  onBack,
+  onViewPupil,
+}) => {
   const [search, setSearch] = useState('');
 
   const filtered = classInfo.pupils.filter((p) =>
@@ -29,7 +34,7 @@ const ClassDetail: React.FC<ClassDetailProps> = ({ classInfo, onViewPupil }) => 
           <Avatar name={teacher.name} />
         </header>
         <main className="p-4 overflow-y-auto">
-          <ClassInfoHeader classInfo={classInfo} />
+          <ClassInfoHeader classInfo={classInfo} onBack={onBack} />
           <div className="mt-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">Pupils</h3>
@@ -46,7 +51,7 @@ const ClassDetail: React.FC<ClassDetailProps> = ({ classInfo, onViewPupil }) => 
                 <PupilCard
                   key={pupil.id}
                   pupil={pupil}
-                  onView={() => onViewPupil(pupil.id)}
+                  onView={() => onViewPupil(pupil)}
                 />
               ))}
             </div>

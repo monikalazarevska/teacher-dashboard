@@ -5,7 +5,7 @@ import { Pupil } from '../types';
 
 interface PupilCardProps {
   pupil: Pupil;
-  onView: () => void;
+  onView: (pupil: Pupil) => void;
 }
 
 const PupilCard: React.FC<PupilCardProps> = ({ pupil, onView }) => {
@@ -28,7 +28,7 @@ const PupilCard: React.FC<PupilCardProps> = ({ pupil, onView }) => {
         <span className="text-sm">{pupil.attendance}%</span>
       </div>
       <div className="mt-2">
-        <Button label="View Profile" onClick={onView} />
+        <Button label="View Profile" onClick={() => onView(pupil)} />
       </div>
     </div>
   );
