@@ -10,7 +10,7 @@ const ClassCard: React.FC<ClassCardProps> = ({ data }) => (
   <div className="bg-white shadow rounded p-4 flex flex-col">
     <h3 className="font-semibold text-lg mb-2">{data.name}</h3>
     <p className="text-sm text-gray-500">{data.year}</p>
-    <p className="text-sm text-gray-500 mb-4">{data.pupils} pupils</p>
+    <p className="text-sm text-gray-500 mb-4">{data.pupils.length} pupils</p>
     <Button label="View Class" onClick={() => {}} />
   </div>
 );

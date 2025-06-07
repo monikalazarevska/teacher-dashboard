@@ -3,12 +3,20 @@ export interface Teacher {
   name: string;
 }
 
+export interface Pupil {
+  id: string;
+  firstName: string;
+  lastName: string;
+  form: string;
+  attendance: number;
+}
+
 export interface ClassInfo {
   id: number;
   name: string;
   year: string;
-  pupils: number;
   subject: string;
+  pupils: Pupil[];
 }
 
 export interface DashboardStats {

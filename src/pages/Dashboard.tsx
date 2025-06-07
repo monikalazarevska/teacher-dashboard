@@ -33,7 +33,11 @@ const Dashboard: React.FC = () => {
             />
           </div>
           <div className="mb-4">
-            <SearchBar value={search} onChange={setSearch} />
+            <SearchBar
+              value={search}
+              onChange={setSearch}
+              placeholder="Search classes by name or subject..."
+            />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map(c => (
