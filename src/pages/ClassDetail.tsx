@@ -9,8 +9,9 @@ import { ClassInfo } from '../types';
 
 interface ClassDetailProps {
   classInfo: ClassInfo;
+  onViewPupil: (id: string) => void;
 }
-const ClassDetail: React.FC<ClassDetailProps> = ({ classInfo }) => {
+const ClassDetail: React.FC<ClassDetailProps> = ({ classInfo, onViewPupil }) => {
   const [search, setSearch] = useState('');
 
   const filtered = classInfo.pupils.filter((p) =>
@@ -42,7 +43,11 @@ const ClassDetail: React.FC<ClassDetailProps> = ({ classInfo }) => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {filtered.map((pupil) => (
-                <PupilCard key={pupil.id} pupil={pupil} />
+                <PupilCard
+                  key={pupil.id}
+                  pupil={pupil}
+                  onView={() => onViewPupil(pupil.id)}
+                />
               ))}
             </div>
           </div>

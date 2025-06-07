@@ -1,4 +1,10 @@
-import { Teacher, ClassInfo, DashboardStats, Pupil } from '../types';
+import {
+  Teacher,
+  ClassInfo,
+  DashboardStats,
+  Pupil,
+  PupilDetail,
+} from '../types';
 
 export const teacher: Teacher = {
   id: 1,
@@ -64,5 +70,58 @@ export const classes: ClassInfo[] = [
       { id: '4', firstName: 'Skyler', lastName: 'Carter', form: '10C', attendance: 92 },
       { id: '5', firstName: 'Jordan', lastName: 'Evans', form: '10C', attendance: 88 },
     ],
+  },
+];
+
+export const pupils: PupilDetail[] = [
+  {
+    id: '1',
+    firstName: 'Riley',
+    lastName: 'Davis',
+    group: 'Year 8',
+    form: '8D',
+    attendance: 93,
+    attendanceBreakdown: {
+      present: 85,
+      authorizedAbsence: 5,
+      unauthorizedAbsence: 2,
+      late: 3,
+    },
+    behaviorPoints: 13,
+    academic: [
+      {
+        subject: 'Mathematics',
+        current: 'B',
+        target: 'B',
+        effort: '4/5',
+        lastAssessment: '7/10 (87%)',
+      },
+      {
+        subject: 'English',
+        current: 'A',
+        target: 'A',
+        effort: '5/5',
+        lastAssessment: '9/10 (95%)',
+      },
+      {
+        subject: 'Science',
+        current: 'B',
+        target: 'A',
+        effort: '4/5',
+        lastAssessment: '8/10 (90%)',
+      },
+    ],
+    behaviorSummary: {
+      netPoints: 13,
+      positive: 15,
+      negative: 2,
+      percentPositive: 88,
+      incidents: [
+        { type: 'Outstanding effort', date: '2025-06-04', points: 3 },
+        { type: 'Helped peers', date: '2025-05-28', points: 3 },
+        { type: 'Disruptive behavior', date: '2025-05-17', points: -3 },
+      ],
+    },
+    reports: [],
   },
 ];
