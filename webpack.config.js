@@ -29,7 +29,7 @@ module.exports = {
   plugins: [new HtmlWebpackPlugin({ template: 'index.html' })],
   devServer: {
     static: './dist',
-    port: 3000,
+    port: 5000,
     hot: true,
     open: true,
   },
