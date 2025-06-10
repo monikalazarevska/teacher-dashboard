@@ -2,4 +2,5 @@
 
 A simple React + TypeScript + Tailwind CSS application for the "Pupil Report Wizard" dashboard.
 
-Run `npm install` and `npm run dev` to start the app.
+This project requires **Node.js v16.14.2**. After installing dependencies with
+`npm install`, use `npm run dev` to start the webpack development server.
